@@ -3,7 +3,13 @@
         {{#each parameters}}
             <div class="{{b "parameters-table" "row"}}">
                 <div class="{{b "parameters-table" "cell" name=true}} line-ellipsis">{{name}}</div>
-                <div class="{{b "parameters-table" "cell" value=true}} line-ellipsis">{{value}}</div>
+                {{#if (eq name 'attachments')}} 
+                    <div class="{{b "parameters-table" "cell" value=true}} line-ellipsis">{{{value}}}</div>
+                {{else if (eq name 'links')}}
+                    <div class="{{b "parameters-table" "cell" value=true}} line-ellipsis">{{{value}}}</div>
+                {{else}}
+                    <div class="{{b "parameters-table" "cell" value=true}} line-ellipsis">{{value}}</div>
+                {{/if}}
             </div>
         {{/each}}
     </div>
